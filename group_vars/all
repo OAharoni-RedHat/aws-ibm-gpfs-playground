@@ -35,18 +35,18 @@ butane_arch: >-
 # Default version to be used, run "make ocp-versions" to see which are the latest
 # ones and download them with "make ocp-clients"
 # ocp_version: "4.19.0-ec.5"
-ocp_version: "4.19.1"
+ocp_version: "4.18.35"
 # For Dev-preview just use: "ocp-dev-preview", the rest of the URL segments remain the same.
 ocp_channel: "ocp"
 
-ocp_domain: "fusionaccess.devcluster.openshift.com"
-ocp_cluster_name: "gpfs-test"
+ocp_domain: "firefly.devcluster.openshift.com"
+ocp_cluster_name: "ohad-ramen-test"
 ocp_worker_count: 3
-ocp_worker_type: "m5.2xlarge"
+ocp_worker_type: "m5.4xlarge"
 ocp_master_count: 3
-ocp_master_type: "m5.2xlarge"
-ocp_az: "eu-central-1a"
-ocp_region: "eu-central-1"
+ocp_master_type: "m5.4xlarge"
+ocp_az: "us-east-1a"
+ocp_region: "us-east-1"
 ocp_arch: "amd64"
 ocp_audit_profile: Default
 
@@ -106,7 +106,7 @@ ibmentitlementkey: "{{ lookup('file', ibmentitlementkeyfile) }}"
 pullsecret_extra_file: "{{ '~/.tokens/pull-secret-extra.txt' | expanduser }}"
 pullsecret_extra: "{{ lookup('file', pullsecret_extra_file) }}"
 kubeadmin_pass: "{{ lookup('file', '~/.kubeadminpass',errors='ignore' | expanduser) }}"
-ssh_pubkey: "{{ lookup('file', '~/.ssh/id_rsa.pub' | expanduser) }}"
+ssh_pubkey: "{{ lookup('file', '~/.ssh/id_ed25519.pub' | expanduser) }}"
 baremetal_env: false
 kvm_emulation: false
 vmpass: "{{ lookup('file', '~/.vmpass' | expanduser) }}"
